@@ -9,17 +9,17 @@ export default function Nav() {
     const router = useRouter();
     const {pathname} = router;
 
-    const inactiveLink = "flex items-center gap-2 mb-4 p-1 rounded-l-lg";
+    const inactiveLink = "flex items-center gap-2 mb-4 p-1 px-2 rounded-l-lg";
     const activeLink = inactiveLink + " bg-white text-blue-800";
 
   return (
     <div>
         <Link href={"/"}
-        className='text-white flex items-center gap-1 my-4 mr-4'>
+        className='text-white flex items-center gap-1 my-4 mr-4 px-2'>
             <HiOutlineBuildingStorefront size={22}/>
             <p className='font-bold'>StoreAdmin</p>
         </Link>
-        <hr className='h-px my-4 bg-white border-0 mr-4' />
+        <hr className='h-px my-4 bg-white border-0 mr-4 px-2' />
         <nav className='text-white'>
             <Link href={"/"}
             className={pathname === "/" ? activeLink : inactiveLink}>
