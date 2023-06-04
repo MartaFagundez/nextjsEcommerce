@@ -9,7 +9,7 @@ export default function Nav() {
     const router = useRouter();
     const {pathname} = router;
 
-    const inactiveLink = "flex items-center gap-2 mb-4 p-1 px-2 rounded-l-lg";
+    const inactiveLink = "flex items-center gap-2 mb-4 p-2 px-4 rounded-l-lg";
     const activeLink = inactiveLink + " bg-white text-blue-800";
 
   return (
