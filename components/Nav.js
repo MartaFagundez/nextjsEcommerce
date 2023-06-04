@@ -1,38 +1,46 @@
 import React from 'react';
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import { HiOutlineBuildingStorefront, HiOutlineArchiveBox, HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { LuSettings } from "react-icons/lu";
 
 export default function Nav() {
+    const router = useRouter();
+    const {pathname} = router;
+
+    const inactiveLink = "flex items-center gap-2 mb-4 p-1 rounded-l-lg";
+    const activeLink = inactiveLink + " bg-white text-blue-800";
+
   return (
     <div>
         <Link href={"/"}
-        className='text-white flex items-center'>
-            <HiOutlineBuildingStorefront size={20}/>
-            <p>StoreAdmin</p>
+        className='text-white flex items-center gap-1 my-4 mr-4'>
+            <HiOutlineBuildingStorefront size={22}/>
+            <p className='font-bold'>StoreAdmin</p>
         </Link>
-        <nav>
+        <hr className='h-px my-4 bg-white border-0 mr-4' />
+        <nav className='text-white'>
             <Link href={"/"}
-            className='text-white flex items-center'>
+            className={pathname === "/" ? activeLink : inactiveLink}>
                 <AiOutlineDashboard size={20} />
                 <p>Dashboard</p>
             </Link>
 
-            <Link href={"/"}
-            className='text-white flex items-center'>
+            <Link href={"/products"}
+            className={pathname.includes("/products") ? activeLink : inactiveLink}>
                 <HiOutlineArchiveBox size={20} />
                 <p>Products</p>
             </Link>
 
-            <Link href={"/"}
-            className='text-white flex items-center'>
+            <Link href={"/orders"}
+            className={pathname.includes("/orders") ? activeLink : inactiveLink}>
                 <HiOutlineClipboardDocumentList size={20} />
                 <p>Orders</p>
             </Link>
 
-            <Link href={"/"}
-            className='text-white flex items-center'>
+            <Link href={"/settings"}
+            className={pathname.includes("/settings") ? activeLink : inactiveLink}>
                 <LuSettings size={20} />
                 <p>Settings</p>
             </Link>
